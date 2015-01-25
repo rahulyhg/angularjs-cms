@@ -1,0 +1,17 @@
+<div>
+    <h1>Users</h1>
+
+    <div id="allUsers" ng-show="showAllUsers">
+		<ul>
+			<li ng-repeat="user in users" class="user" ng-click="editUser(user.id)">
+				<img ng-src="files/images/{{user.profile_image}}">
+				<div class="userDetails">
+					<div class="username">{{user.username}}</div>
+					<div type="text" class="userEmail">{{user.email}}</div>
+					<div class="clearfix"></div>
+				</div>
+			</li>
+		</ul>
+    </div>
+    
+</div>

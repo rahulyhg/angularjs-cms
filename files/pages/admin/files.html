@@ -1,0 +1,46 @@
+<div id="files">
+    <h1>Files</h1>
+	<label for="upload">Upload</label>
+	<input type="file" name="file" file-model="myFile" id="upload">
+	<div class="clearfix"></div>
+	<button class="navBtn" ng-click="uploadFile()">Upload</button>
+	
+	<div class="clearfix"></div>
+	
+	<ul>
+		<li ng-repeat="file in files" class="file">
+			<div class="viewFile" ng-click="viewFile(file.id)">View file</div>
+			<div class="editFile" ng-click="editFile(file.id)">Edit</div>
+			<img id="{{file.id}}" ng-src="files/images/{{file.file}}" ng-class="viewMe" ng-click="backToList(file.id)">
+		</li>		
+	</ul>
+	<div ng-show="fileBg" id="viewMeBg"></div>
+</div>
+
+<div ng-show="editBox" id="showEditBox" ng-click="hideEditBox()">
+	<div class="close" ng-click="close()">X</div>
+	<label for="titleFile">Title</label>
+	<input type="text" ng-model="fileUpdate.title" id="titleFile">
+	<div class="clearfix"></div>
+	<label for="altFile">Alt text</label>
+	<input type="text" ng-model="fileUpdate.alt" id="altFile">
+	<div class="clearfix"></div>
+	<button class="navBtn" ng-click="saveFile(fileUpdate.id)">Save</button>
+	<button class="navBtn" ng-click="deleteFile(fileUpdate.id)">Delete</button>
+</div>
+<div class="loading">
+	<div class='spinner center'>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+	</div>
+</div>

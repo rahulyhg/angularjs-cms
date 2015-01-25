@@ -1,0 +1,43 @@
+<div>
+    <h1>Settings</h1>
+    <label for="title">Site title</label>
+	<input type="text" ng-model="site.title" id="title">
+	
+	<div class="clearfix"></div>
+	<label for="desc">Site description</label>
+	<input type="text" ng-model="site.desc" id="desc">
+	
+	<div class="clearfix"></div>
+	<label for="key">Site keywords</label>
+	<input type="text" ng-model="site.key" id="key">
+	
+	<div class="clearfix"></div>
+	<button class="navBtn" ng-click="wallpaper()">Wallpaper</button>
+
+	<div class="clearfix"></div>
+	<button class="navBtn" ng-click="settings()">Save all</button>
+	
+	<div class="chooseWp" ng-show="wallpapers">
+		<ul>
+			<li ng-repeat="file in files" class="file">
+				<img ng-src="files/images/{{file.file}}" data="{{file.id}}" ng-click="setWallpaper(file.id)">
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="loading">
+	<div class='spinner center'>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+	</div>
+</div>

@@ -1,0 +1,100 @@
+<div>
+    <h1>Pages</h1>
+    
+    <button class="navBtn" ng-click="getAllPages()">All pages</button>
+    <button class="navBtn" ng-click="newPage()">New page</button>
+    <button class="navBtn" ng-click="deletedPages()">Deleted pages</button>
+    
+    <div class="clearfix"></div>
+    
+    <div id="allPages" ng-show="showAllPages">
+		<ul>
+			<li ng-repeat="eachPage in allPages" class="eachPage">
+				<div class="pageTitle">{{eachPage.title}}</div>
+				<div class="editPage" data="{{eachPage.id}}" ng-click="editPage(eachPage.id)">Edit</div>
+				<div class="deletePage" data="{{eachPage.id}}" ng-click="deletePage(eachPage.id)">Delete</div>
+				<img ng-src="files/images/{{eachPage.file}}">
+			</li>
+		</ul>
+    </div>
+    
+    <div id="delPages" ng-show="showDeletedPages">
+		<ul>
+			<li ng-repeat="deleted in delPages" class="eachPage">
+				<div class="pageTitle">{{deleted.title}}</div>
+				<div class="editPage" data="{{deleted.id}}" ng-click="editPage(deleted.id)">Edit</div>
+				<div class="deleteForever" data="{{deleted.id}}" ng-click="deleteForever(deleted.id)">Delete</div>
+				<div class="unDeletePage" data="{{deleted.id}}" ng-click="unDelete(deleted.id)">Undelete</div>
+				<img ng-src="files/images/{{deleted.file}}">
+			</li>
+		</ul>
+    </div>
+    
+    <div class="clearfix"></div>
+    
+    <div id="pageEdit" ng-show="showPage">
+	    <input type="hidden" data="{{page.id}}" ng-model="page.id">
+	    
+	    <label for="title">Page title:</label>
+		<input type="text" ng-model="page.title" id ="title">
+		
+		<div class="date">{{page.date}}</div>
+		
+		<div class="chooseImages" ng-show="images">
+			<ul>
+				<li ng-repeat="file in files" class="file">
+					<img ng-src="files/images/{{file.file}}" data="{{file.id}}" ng-click="setLeadImage(file.id)">
+				</li>
+			</ul>
+		</div>
+		
+		<div class="clearfix"></div>
+		<label for="content">Page content:</label>
+		<script>
+			$(document).ready(function(){
+				$("textarea").jqte();
+			});
+		</script>
+		<div class="chooseImages" ng-show="addFiles">
+			<ul>
+				<li ng-repeat="image in imgs" class="file">
+					<img ng-src="files/images/{{image.file}}" data="{{image.id}}" ng-click="setImage(image.id)">
+				</li>
+			</ul>
+		</div>
+		<div id="contentFeed">
+			<button ng-click="addImage()" id="addImage">Add image</button>		
+			<textarea id="pageContent">{{page.content}}</textarea>
+		</div>
+		
+		<div id="leadImage">
+			<img ng-src="files/images/{{leadImage}}" alt="Select lead image">
+		</div>
+		<button class="navBtn" ng-click="chooseLeadImage()">Set lead image</button>
+		
+		<div class="clearfix"></div>
+		<label for="template">Template</label>
+		<select ng-model="page.template" id="template">
+			<option ng-repeat="template in templates">{{template}}</option>
+		</select>
+		
+		<button class="navBtn" ng-click="save()">Save</button>
+    </div>
+    
+</div>
+<div class="loading">
+	<div class='spinner center'>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+		<div class='spinner-blade'></div>
+	</div>
+</div>

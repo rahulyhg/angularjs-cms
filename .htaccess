@@ -1,0 +1,9 @@
+# Enable URL Rewrite
+RewriteEngine on
+
+# Allow any files or directories that exist to be displayed directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirect EVERY uri into index.php
+RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
