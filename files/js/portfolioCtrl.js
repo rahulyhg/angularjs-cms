@@ -104,7 +104,8 @@
 		    $scope.showPortfolio = true;
 		    $scope.showDeletedPortfolio = false;
 		    
-			$scope.portfolio = {};
+			$scope.portfolio = null;
+			$scope.leadImage = null;
 	    }
 	    
 	    // Delete portfolio
