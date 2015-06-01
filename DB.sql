@@ -136,10 +136,3 @@ CREATE TABLE `users` (
   `remove` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `password`, `email`, `profile_image`, `token`, `remove`) VALUES
-(1, 'YWRtaW4=', 'MjAwNTAx', 'aran.erlich@gmail.com', NULL, '1f6978832cd231ddc52db65b0546c3e1', 0);
